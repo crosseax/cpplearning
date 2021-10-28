@@ -25,6 +25,7 @@ int main (void)
     (*enemyPtr).name = "Enemy";
     enemyPtr->health = 100;
     enemyPtr->talk("Go commit death");
+    delete enemyPtr;
 
     return 0;
 }
