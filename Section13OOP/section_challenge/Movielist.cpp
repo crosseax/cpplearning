@@ -41,7 +41,7 @@ void Movielist::display() const {
         std::cout << "No movies in the list. \n" << std::endl;
     } else {
         std::cout << "=====================" << std::endl;
-        for (auto movie : movielist) {
+        for (const auto movie : movielist) { // without const, it will create new obj and copy so inefficient
             movie.display();
         }
         std::cout << "=====================" << std::endl;
