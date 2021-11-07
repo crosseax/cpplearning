@@ -2,6 +2,18 @@
 #define _MYSTRING_H_
 
 class Mystring {
+    // operator overloading as global functions
+    
+    // In global function overloading, 
+    // Unary operator takes 1 arg,
+    // Binary operator takes 2 args
+    
+    // when declaring friends function, they act like global to this obj
+    // also it doesnt matter the friend function is in private or public
+    friend bool operator==(const Mystring &lhs, const Mystring &rhs);
+    friend Mystring operator-(const Mystring &obj); 
+    friend Mystring operator+(const Mystring &lhs, const Mystring &rhs);
+
 private:
     char* str;
 public:
@@ -19,14 +31,6 @@ public:
     Mystring &operator = (Mystring &&rhs);
     // in this case, its a R-value
 
-
-    // Operator overloading as member methods
-    // unary operator takes NO parameter
-    Mystring operator-() const;  // make lowercase in this case, whatever you do with it is depending on the scenario
-
-    // binary operator takes ONE parameter
-    Mystring operator+(const Mystring &rhs) const;  // concatination in this case
-    bool operator==(const Mystring &rhs) const;     // equality comparison
 
     void display() const;
     int get_length() const;
