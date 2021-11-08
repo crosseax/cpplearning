@@ -163,6 +163,15 @@ Mystring operator*(const Mystring& obj, const int times) {
     return tmp;
 }
 
+// A cleaner code for * sign overload
+// Mystring operator*(const Mystring& obj, const int times) {
+//     Mystring tmp;
+//     for (int i = 0; i < times; i++){
+//         tmp = tmp + obj;
+//     }
+//     return tmp;
+// }
+
 // *= Multiply sign overload, repeat then assign, based on * overload
 Mystring& operator*=(Mystring& obj, const int times) {
     obj = obj * times;
