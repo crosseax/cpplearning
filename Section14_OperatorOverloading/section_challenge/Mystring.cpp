@@ -181,7 +181,7 @@ Mystring& operator*=(Mystring& obj, const int times) {
 // ++ Plus-plus sign overload, post-increment, toupper, based on pre-increment
 Mystring operator++(Mystring& obj, int) {
     Mystring tmp {obj};
-    ++obj;
+    ++obj; // make sure to call pre-increment
     return tmp;
 }
 
