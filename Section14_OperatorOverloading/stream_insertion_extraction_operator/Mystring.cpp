@@ -87,9 +87,15 @@ std::istream& operator>>(std::istream& is, Mystring& rhs){
     return is;
 }
 
-// when run on archlinux 
+// when on archlinux
+// clang++ --std=c++20 *.cpp -o main
+// got error:
 // Mystring.cpp:84:8: error: invalid operands to binary expression ('std::istream' (aka 'basic_istream<char>') and 'char *')
-// I have no idea what is wrong
+
+// but if using 
+// clang++ --std=c++11 *.cpp -o main
+// then compile fine
+
 
 
 

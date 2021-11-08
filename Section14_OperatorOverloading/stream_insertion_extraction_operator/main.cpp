@@ -17,10 +17,10 @@ int main (void)
     
     cout << endl;
     
-    // cout << "Enter the three stooges names separated by a space: ";
-    // cin >> larry >> moe >> curly;
+    cout << "Enter the three stooges names separated by a space: ";
+    cin >> larry >> moe >> curly;
 
-    // cout << "The three stooges are " << larry << ", " << moe << ", " << curly << endl;
+    cout << "The three stooges are " << larry << ", " << moe << ", " << curly << endl;
 
     return 0;
 }
