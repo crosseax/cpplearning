@@ -97,7 +97,7 @@ std::ostream& operator<<(std::ostream& os, Mystring& rhs) {
 // >> Extraction operator ovverload
 std::istream& operator>>(std::istream& is, Mystring& rhs) {
     char* buff = new char[1000];
-    is >> buff;         // works in std=c++11 but not c++20 for some reason, read the doc
+    is >> buff;         // works in std=c++11 to c++17 but not c++20 for some reason, read the doc
     rhs = Mystring {buff};
     delete [] buff;
     return is;
