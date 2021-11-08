@@ -3,8 +3,8 @@
 
 class Mystring
 {
-    friend std::ostream& operator<<(std::ostream& os, const Mystring& rhs);
-    friend std::istream& operator>>(std::istream& is, Mystring& rhs);
+    friend std::ostream& operator<<(std::ostream& os, const Mystring& rhs); // << Insertion operator overload
+    friend std::istream& operator>>(std::istream& is, Mystring& rhs);       // >> Extraction operator overload
 private:
     char* str;
 public:
@@ -25,18 +25,22 @@ public:
 
 // Now the fun part
 
-friend std::ostream& operator<<(std::ostream& os, const Mystring& rhsobj); // << Insertion operator overload
-friend std::istream& operator>>(std::istream& is, Mystring& rhsobj); // >> Extraction operator overload
+friend std::ostream& operator<<(std::ostream& os, const Mystring& rhsobj);  // << Insertion operator overload
+friend std::istream& operator>>(std::istream& is, Mystring& rhsobj);        // >> Extraction operator overload
 
-friend bool operator==(const Mystring& lhsobj, const Mystring& rhsobj);   // == Equal sign overload
-friend bool operator!=(const Mystring& lhsobj, const Mystring& rhsobj);   // != Unequal sign overload
-friend bool operator<(const Mystring& lhsobj, const Mystring& rhsobj);    // < Smaller sign overload
-friend bool operator>(const Mystring& lhsobj, const Mystring& rhsobj);    // > Larger sign overload
-friend Mystring operator-(const Mystring& obj); // -str Minus sign overload, tolower
-friend Mystring operator+(const Mystring& lhsobj, const Mystring& rhsobj); // +str Plus sign overload, concatenate
-friend Mystring operator+=(const Mystring& lhsobj, const Mystring& rhspbj); // +=str Plus-equal sign overload, concatenate
+friend bool operator==(const Mystring& lhsobj, const Mystring& rhsobj);     // == Equal sign overload
+friend bool operator!=(const Mystring& lhsobj, const Mystring& rhsobj);     // != Unequal sign overload
+friend bool operator<(const Mystring& lhsobj, const Mystring& rhsobj);      // < Smaller sign overload
+friend bool operator>(const Mystring& lhsobj, const Mystring& rhsobj);      // > Larger sign overload
+
+friend Mystring operator-(const Mystring& obj);                             // -str Minus sign overload, tolower
+friend Mystring operator+(const Mystring& lhsobj, const Mystring& rhsobj);  // +str Plus sign overload, concatenate
+friend Mystring& operator+=(Mystring& lhsobj, const Mystring& rhspbj);      // +=str Plus-equal sign overload, concatenate then assign
 friend Mystring operator*(const Mystring& obj, const int times);            // * Multiply sign overload, repeat for int times
+friend Mystring& operator*=(Mystring& obj, const int times);                // *= Multiply sign overload, repeat then assign
 
+friend Mystring operator++(Mystring& obj, int);         // ++ Plus-plus sign overload, post-increment, toupper
+friend Mystring& operator++(Mystring& obj);             // ++ Plus-plus sign overload, pre-increment, toupper
 
 };
 

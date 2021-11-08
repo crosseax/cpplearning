@@ -142,15 +142,14 @@ Mystring operator+(const Mystring& lhsobj, const Mystring& rhsobj) {
     return tmp;
 }
 
-// +=str Plus-equal sign overload, concatenate
-Mystring operator+=(const Mystring& lhsobj, const Mystring& rhspbj) {
-    char* buff = new char[std::strlen(lhsobj.str) + std::strlen(rhspbj.str) + 1];
-    std::strcpy(buff, lhsobj.str);
-    std::strcat(buff, rhspbj.str);
-    Mystring tmp {buff};
-    delete [] buff;
-    return tmp;
+
+// +=str Plus-equal sign overload, concatenate then assign, based on + overload
+Mystring& operator+=(Mystring& lhsobj, const Mystring& rhsobj) {
+    lhsobj = lhsobj + rhsobj;
+    return lhsobj;
 }
+
+
 
 // * Multiply sign overload, repeat for int times
 Mystring operator*(const Mystring& obj, const int times) {
@@ -164,4 +163,24 @@ Mystring operator*(const Mystring& obj, const int times) {
     return tmp;
 }
 
+// *= Multiply sign overload, repeat then assign, based on * overload
+Mystring& operator*=(Mystring& obj, const int times) {
+    obj = obj * times;
+    return obj;
+}
+
+// ++ Plus-plus sign overload, post-increment, toupper, based on pre-increment
+Mystring operator++(Mystring& obj, int) {
+    Mystring tmp {obj};
+    ++obj;
+    return tmp;
+}
+
+// ++ Plus-plus sign overload, pre-increment, toupper
+Mystring& operator++(Mystring& obj) {
+    for (size_t i = 0; i < std::strlen(obj.str); i++) {
+        obj.str[i] = std::toupper(obj.str[i]);
+    }
+    return obj;
+}
 
