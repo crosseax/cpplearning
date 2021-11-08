@@ -16,8 +16,8 @@ class Mystring {
 
     // overloading the output stream operator (insertion operator)
     friend std::ostream& operator<<(std::ostream& os, const Mystring& rhs);
-    friend std::istream& operator>>(std::istream& is, Mystring& rhs);
     // overloading the input stream operator (extraction operator)
+    friend std::istream& operator>>(std::istream& is, Mystring& rhs);
     
 
 
