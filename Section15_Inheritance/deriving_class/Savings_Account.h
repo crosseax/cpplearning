@@ -7,6 +7,8 @@ public:
     Savings_Account();
     ~Savings_Account();
 
+    double intRate;
+
     void deposit (double amount);
     void withdraw (double amount);
 };

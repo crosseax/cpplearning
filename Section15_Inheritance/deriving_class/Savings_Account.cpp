@@ -1,8 +1,8 @@
 #include <iostream>
 #include "Savings_Account.h"
 
-Savings_Account::Savings_Account () {
-
+Savings_Account::Savings_Account () 
+    : intRate {3.0} {
 }
 
 Savings_Account::~Savings_Account () {
