@@ -10,11 +10,7 @@ Savings_Account::Savings_Account(std::string name, double balance, double intRat
 }
 
 bool Savings_Account::deposit(double amount) { // override deposit methods
-    if (amount >= 0) {
-        amount += (amount * intRate/100);
-        return Account::deposit(amount); // delegating to the parent method
-    } else {
-        return false;
-    }
+    amount += (amount * intRate/100);
+    return Account::deposit(amount); // delegating to the parent method
 }
 // the withdraw method is inherited
