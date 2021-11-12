@@ -51,7 +51,7 @@ int main (void)
     Derived derived;
     // Derived class also has a,b,c though some of them is not accessible
     // Not Accessible != Not Inherited
-    
+
     derived.a = 200; // OK
     // derived.b = 200; // Compiler error cuz protected 
     // derived.c = 200; // Compiler error cuz private
