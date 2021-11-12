@@ -27,6 +27,7 @@ public:
         if (this != &rhs) {
             value = rhs.value; // assign
         }
+        cout << "Base operator= overloaded copy assignment" << endl;
         return *this;
     }
 
@@ -59,9 +60,10 @@ public:
     // overload copy assignment operator =
     Derived& operator=(const Derived& rhs) {
         if (this != &rhs) {
-            Base::operator=(rhs); // Assign Base part
+            Base::operator=(rhs); // Assign Base part, slicing out the Base value part of the other, so this line leads to Base copy constructor
             doubled_value = rhs.doubled_value; // Assign Derived part
         }
+        cout << "Derived operator= overloaded copy assignment" << endl;
         return *this;
     }
 
