@@ -14,10 +14,10 @@ private:
     static constexpr double defBonus = 50;
     static constexpr int limit = 3;
 
-protected:
     double bonusEntry = 5000;
     double bonus;
 
+protected:
     int withdrawTimes;
 
 public:

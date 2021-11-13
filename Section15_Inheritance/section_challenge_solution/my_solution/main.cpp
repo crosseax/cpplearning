@@ -54,10 +54,10 @@ int main (void)
     display(truAccounts);
     deposit(truAccounts, 1000);
     withdraw(truAccounts, 499);
-    withdraw(truAccounts, 499);
-    withdraw(truAccounts, 499);
-    withdraw(truAccounts, 499);
-    withdraw(truAccounts, 499);
+
+    for (int i = 0; i < 5; i++) {
+        withdraw(truAccounts, 499);
+    }
 
     cout << endl;
 

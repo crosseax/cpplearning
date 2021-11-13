@@ -3,7 +3,8 @@
 
 
 std::ostream& operator<<(std::ostream& os, const Trust_Account& account) {
-    os << "[Trust account: " << account.name << ", Bal: $" << account.balance << "]";
+    os << "[Trust account: " << account.name << ", Bal: $" << account.balance 
+       << ", withdraws: " << account.withdrawTimes << "]";
     return os;
 }
 
