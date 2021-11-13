@@ -1,7 +1,7 @@
 #include "Account.h"
 
 std::ostream& operator<<(std::ostream&os, const Account& account) {
-    os << "[Account: " << account.name << ", $" << account.balance << "]";
+    os << "[Account: " << account.name << ", Bal: $" << account.balance << "]";
     return os;
 }
 

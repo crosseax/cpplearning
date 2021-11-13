@@ -1,15 +1,16 @@
 #include "Trust_Account.h"
 
 int Trust_Account::limit {3};
-int Trust_Account::withdrawTimes {0};
+
 
 std::ostream& operator<<(std::ostream& os, const Trust_Account& account) {
-    os << "[Trust account: " << account.name << ", $" << account.balance << ", " << account.intRate << "%]";
+    os << "[Trust account: " << account.name << ", Bal: $" << account.balance << ", IR: " << account.intRate << "%]";
     return os;
 }
 
 Trust_Account::Trust_Account(std::string name, double balance, double intRate, double bonus)
     : Savings_Account{name, balance, intRate}, bonus {bonus} { // create constructor
+    int withdrawTimes {0};
 }
 
 

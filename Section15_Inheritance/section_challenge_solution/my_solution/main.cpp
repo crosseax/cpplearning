@@ -53,6 +53,7 @@ int main (void)
 
     display(truAccounts);
     deposit(truAccounts, 1000);
+    deposit(truAccounts, 8000);
     withdraw(truAccounts, 2000);
     withdraw(truAccounts, 500);
     withdraw(truAccounts, 500);
