@@ -12,13 +12,13 @@ private:
     static constexpr double defBalance = 0.0;
     static constexpr double defIntRate = 0.0;
     static constexpr double defBonus = 50;
-    
-    static int limit;
-    static int withdrawTimes;
+    static constexpr int limit = 3;
 
 protected:
     double bonusEntry = 5000;
     double bonus;
+
+    int withdrawTimes;
 
 public:
     Trust_Account(std::string name = defName, double balance = defBalance, double intRate = defIntRate, double bonus = defBonus);
