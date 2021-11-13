@@ -23,7 +23,7 @@ protected:
 public:
     Trust_Account(std::string name = defName, double balance = defBalance, double intRate = defIntRate, double bonus = defBonus);
     bool deposit(double amount);
-
+    bool withdraw(double amount);
 };
 
 #endif // _TRUST_ACCOUNT_H_

@@ -14,14 +14,18 @@ Trust_Account::Trust_Account(std::string name, double balance, double intRate, d
 
 
 bool Trust_Account::deposit(double amount) { // override deposit methods
-    if (amount <= balance * 0.2 && withdrawTimes < limit) {
         if (amount >= bonusEntry) {
             amount += bonus;
         }
         return Savings_Account::deposit(amount);
+    
+}
+
+bool Trust_Account::withdraw(double amount) {
+    if (amount <= balance * 0.2 && withdrawTimes < limit) {
         withdrawTimes++;
+        return Savings_Account::deposit(amount);
     } else {
         return false;
     }
 }
-// the withdraw method is inherited
