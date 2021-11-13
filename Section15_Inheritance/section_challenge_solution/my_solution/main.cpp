@@ -2,6 +2,8 @@
 #include "Account.h"
 #include "Savings_Account.h"
 #include "Account_Util.h"
+#include "Checking_Account.h"
+#include "Trust_Account.h"
 
 using namespace std;
 
@@ -32,6 +34,16 @@ int main (void)
     display(savAccounts);
     deposit(savAccounts, 1000);
     withdraw(savAccounts, 2000);
+
+    vector<Checking_Account> cheAccounts;
+    cheAccounts.push_back(Checking_Account{});
+    cheAccounts.push_back(Checking_Account{"Garry"});
+    cheAccounts.push_back(Checking_Account{"Tiger", 2000});
+    cheAccounts.push_back(Checking_Account{"KC", 15000, 5});
+
+    display(cheAccounts);
+    deposit(cheAccounts, 1000);
+    withdraw(cheAccounts, 2000);
 
     return 0;
 }
