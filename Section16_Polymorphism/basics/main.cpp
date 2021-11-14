@@ -28,7 +28,7 @@
 // Virtual function will always call the method/function depending on the object's type at Run-Time
 
 #include <iostream>
-#include <memory>
+#include <memory> // for smart pointer (will learn in later section)
 
 class Base {
 public: 
