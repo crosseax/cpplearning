@@ -1,6 +1,10 @@
 #include <iostream>
 
-// override keyword is like a notes to tell compiler if you forgot
+// override specifier is like a notes to tell compiler if you forgot
+
+// final specifier:
+// 1. when used at the class level: prevents a class from being derived from
+// 2. when used at the method level: prevents the virtual method from being overriden in derived classes
 
 class Base {
 public:
@@ -19,6 +23,14 @@ public:
         std::cout << "Hello - I'm a Derived class object" << std::endl;
     }
     virtual ~Derived(){}
+};
+
+class Final_Class final: public Derived { // final class specifier, cannot be derived from
+public:
+    virtual void say_hello() const final { // final method specifier, cannot be further overriding
+        std::cout << "Hello - I'm a Final class so I cannot be derived from" << std::endl;
+        std::cout << "Also My say_hello() method has final specifier so this method cannot be further overriden" << std::endl;
+    }
 };
 
 int main (void)
