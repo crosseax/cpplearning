@@ -8,12 +8,26 @@ public:
     // so its bond at runtime, not compile time
         std::cout << "Account::withdraw()" << std::endl;
     }
+
+    // if we have a class, and that class has virtual functions
+    // then that class also must provide virtual destructor
+    // once the Base provide a virtual destructor
+    // then the destructors in the derived classes are also virtual
+    // otherwise could lead to potential memory leak
+    // the virtual keyword is not needed for derived classes, but it is the best practive to do also provide so
+    virtual ~Account() {
+        std::cout << "Account::destructor" << std::endl;
+    }
+
 };
 
 class Checking: public Account {
 public:
     virtual void withdraw(double amount){
         std::cout << "Checking::withdraw()" << std::endl;
+    }
+    virtual ~Checking() {
+        std::cout << "Checking::destructor, ";
     }
 };
 
@@ -22,12 +36,18 @@ public:
     virtual void withdraw(double amount){
         std::cout << "Savings::withdraw()" << std::endl;
     }
+    virtual ~Savings() {
+        std::cout << "Savings::destructor, ";
+    }
 };
 
 class Trust: public Savings {
 public:
     virtual void withdraw(double amount){
         std::cout << "Trust::withdraw()" << std::endl;
+    }
+    virtual ~Trust() {
+        std::cout << "Trust::destructor, ";
     }
 };
 
