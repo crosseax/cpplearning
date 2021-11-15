@@ -21,8 +21,6 @@ public:
 
     // You CANNOT have virtual Constructors
     // they are not allowed, and they dont make no sense
-
-
 };
 
 class Checking: public Account {
