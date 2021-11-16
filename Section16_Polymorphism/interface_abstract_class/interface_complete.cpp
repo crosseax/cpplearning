@@ -71,6 +71,15 @@ public:
 };
 
 
+
+// even better to use function to implement I_Printable
+void print(const I_Printable& obj) {
+    std::cout << obj << std::endl;
+}
+
+
+
+
 int main (void)
 {
     // static binding 
@@ -99,6 +108,15 @@ int main (void)
 
     std::cout << d << std::endl; 
     std::cout << *dp << std::endl;
+
+    std::cout << std::endl;
+
+
+    // using function
+    print(*p1);
+    print(a);
+    print(t);
+    print(*dp);
 
     return 0;
 }
