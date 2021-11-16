@@ -1,15 +1,10 @@
 #include "Trust_Account.h"
 
-
-
-std::ostream& operator<<(std::ostream& os, const Trust_Account& account) {
-    os << "[Trust account: " << account.name << ", Bal: $" << account.balance 
-       << ", withdraws: " << account.withdrawTimes << "]";
-    return os;
-}
-
 void Trust_Account::print(std::ostream& os) const {
-    
+    os.precision(2);
+    os << std::fixed;
+    os << "[Trust account: " << name << ", Bal: $" << balance 
+       << ", withdraws: " << withdrawTimes << "]";
 }
 
 

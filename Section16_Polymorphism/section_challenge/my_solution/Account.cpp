@@ -1,12 +1,9 @@
 #include "Account.h"
 
-std::ostream& operator<<(std::ostream&os, const Account& account) {
-    os << "[Account: " << account.name << ", Bal: $" << account.balance << "]";
-    return os;
-}
-
 void Account::print(std::ostream& os) const {
-    
+    os.precision(2);
+    os << std::fixed;
+    os << "[Account: " << name << ", Bal: $" << balance << "]";
 }
 
 

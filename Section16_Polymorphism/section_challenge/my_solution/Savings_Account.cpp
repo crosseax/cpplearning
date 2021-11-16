@@ -1,12 +1,9 @@
 #include "Savings_Account.h"
 
-std::ostream& operator<<(std::ostream& os, const Savings_Account& account) {
-    os << "[Savings account: " << account.name << ", Bal: $" << account.balance << ", IR:" << account.intRate << "%]";
-    return os;
-}
-
 void Savings_Account::print(std::ostream& os) const {
-    
+    os.precision(2);
+    os << std::fixed;
+    os << "[Savings account: " << name << ", Bal: $" << balance << ", IR:" << intRate << "%]";
 }
 
 Savings_Account::Savings_Account(std::string name, double balance, double intRate)

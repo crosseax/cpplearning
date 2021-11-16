@@ -3,8 +3,6 @@
 #include "Account.h"
 
 class Savings_Account: public Account {
-    friend std::ostream& operator<<(std::ostream& os, const Savings_Account& rhs);
-
 private:
     static constexpr const char* defName = "Unnamed Savings Account";
     static constexpr double defBalance = 0.0;

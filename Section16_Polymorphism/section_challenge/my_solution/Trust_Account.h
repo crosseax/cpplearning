@@ -5,8 +5,6 @@
 #include <string>
 
 class Trust_Account: public Savings_Account {
-    friend std::ostream& operator<<(std::ostream& os, const Trust_Account& account);
-
 private:
     static constexpr const char* defName = "Unnamed Trust Account";
     static constexpr double defBalance = 0.0;

@@ -1,12 +1,9 @@
 #include "Checking_Account.h"
 
-std::ostream& operator<<(std::ostream& os, const Checking_Account& account) {
-    os << "[Checking account: " << account.name << ", Bal: $" << account.balance << "]";
-    return os;
-}
-
 void Checking_Account::print(std::ostream& os) const {
-    
+    os.precision(2);
+    os << std::fixed;
+    os << "[Checking account: " << name << ", Bal: $" << balance << "]";
 }
 
 Checking_Account::Checking_Account(std::string name, double balance) 
