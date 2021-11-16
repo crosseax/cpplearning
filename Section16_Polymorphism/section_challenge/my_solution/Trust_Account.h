@@ -22,7 +22,7 @@ protected:
     int withdrawTimes;
 
 public:
-    virtual void print(std::ostream& os, const Trust_Account& account) const override;
+    virtual void print(std::ostream& os) const override;
 
     Trust_Account(std::string name = defName, double balance = defBalance, double intRate = defIntRate);
     virtual bool deposit(double amount) override;
