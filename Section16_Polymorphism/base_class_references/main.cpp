@@ -72,36 +72,15 @@ int main (void)
     do_withdraw(a3, 3000);
     do_withdraw(a4, 4000);
 
-    std::cout << "\n===No pointers vector===" << std::endl;
-    {
-        std::vector<Account> accounts;
-        accounts.push_back(a1);
-        accounts.push_back(a2);
-        accounts.push_back(a3);
-        accounts.push_back(a4);
-
-        for (auto acc : accounts) {
-            do_withdraw(acc, 500);
-        }
-        // notice this will not call virtual destructors
-    }
-
-    // However, the method above is making a lot of copy
-    // so the destructor will be called each time a function is used
-    
-
     std::cout << "\n===Pointers vector===" << std::endl;
-    // Method below use pointer to not to create copy, hence boost performance
-    {
-        std::vector<Account*> accountsPtr;
-        accountsPtr.push_back(&a1);
-        accountsPtr.push_back(&a2);
-        accountsPtr.push_back(&a3);
-        accountsPtr.push_back(&a4);
+    std::vector<Account*> accountsPtr;
+    accountsPtr.push_back(&a1);
+    accountsPtr.push_back(&a2);
+    accountsPtr.push_back(&a3);
+    accountsPtr.push_back(&a4);
 
-        for (const auto acc : accountsPtr) {
-            do_withdraw(*acc, 500);
-        }
+    for (const auto acc : accountsPtr) {
+        do_withdraw(*acc, 500);
     }
 
     // Destructor calls
