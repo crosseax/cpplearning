@@ -109,7 +109,7 @@ int main (void)
     Shape* s2 = new Line;
     Shape* s3 = new Square;
 
-    std::cout << "\n===Loop through vector===" << std::endl;
+    std::cout << "\n===Loop through ptr vector===" << std::endl;
     std::vector<Shape*> shapes_ptr {s1, s2, s3};
     for (const auto shape : shapes_ptr) {
         shape->draw();
