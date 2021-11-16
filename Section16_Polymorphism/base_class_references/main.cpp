@@ -99,7 +99,7 @@ int main (void)
         accountsPtr.push_back(&a3);
         accountsPtr.push_back(&a4);
 
-        for (auto acc : accountsPtr) {
+        for (const auto acc : accountsPtr) {
             do_withdraw(*acc, 500);
         }
     }
