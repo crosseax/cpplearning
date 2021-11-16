@@ -35,10 +35,15 @@ int main (void)
         // vec.push_back<ptr>; // Error - copy not allowed
         vec.push_back(std::move(ptr)); // OK - move allowed
         
-        // dont know why code below won't work
+        // code below won't work because it's doing copy
         // for (auto v : vec) {
         //     std::cout << *v << std::endl;
         // }
+
+        // this works
+        for (const auto& v : vec) {
+            std::cout << *v << std::endl;
+        }
     }
 
     { // a better way to initialize unique_pointers
