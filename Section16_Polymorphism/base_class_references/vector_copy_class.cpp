@@ -41,6 +41,13 @@ int main (void)
 
     std::cout << "\n===vector 1 destructor when out of box===" << std::endl;
     {
+        // such behavior is because when pass obj into vector
+        // without using *ptr or &ref
+        // its doing copy by default
+        // so the compiler only alloc enough memory for Base each time
+        // then the Derived get "Sliced"
+        // hence the behavior below
+
         std::vector<Base> BaseVec;
         std::cout << "1\n" << std::endl;
         BaseVec.push_back(b);
