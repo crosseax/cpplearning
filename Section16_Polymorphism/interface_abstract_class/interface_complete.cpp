@@ -118,6 +118,8 @@ int main (void)
     print(t);
     print(*dp);
 
+    dp->print(std::cout << "hi ");
+
     return 0;
 }
 
