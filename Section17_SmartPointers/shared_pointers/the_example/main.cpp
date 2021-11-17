@@ -82,24 +82,24 @@ int main (void)
         std::shared_ptr<Account> acc2 = std::make_shared<Checking_Account> ("Moe", 5000); 
         std::shared_ptr<Account> acc3 = std::make_shared<Savings_Account> ("Curly", 6000); 
     
+        std::cout << "\naccPtrVec" << std::endl;
         std::vector<std::shared_ptr<Account>*> accPtrVec;
         accPtrVec.push_back(&acc1);
         accPtrVec.push_back(&acc2);
         accPtrVec.push_back(&acc3);
 
-        std::cout << "\naccPtrVec" << std::endl;
         for (const auto& acc : accPtrVec) {
             std::cout << **acc << std::endl;
             std::cout << "Use count: " << (*acc).use_count() << std::endl; 
             // 1, because accPtrVec did not copy, it takes a pointer that points to a share_ptr which points to an Account obj
         }
 
+        std::cout << "\naccVec" << std::endl;
         std::vector<std::shared_ptr<Account>> accVec;
         accVec.push_back(acc1);
         accVec.push_back(acc2);
         accVec.push_back(acc3);
 
-        std::cout << "\naccVec" << std::endl;
         for (const auto& acc : accVec) {
             std::cout << *acc << std::endl;
             std::cout << "Use count: " << acc.use_count() << std::endl; 
