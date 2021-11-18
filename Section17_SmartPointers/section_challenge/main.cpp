@@ -30,6 +30,9 @@ public:
 std::unique_ptr<std::vector<std::shared_ptr<Test>>> make();
 void fill (std::vector<std::shared_ptr<Test>>& vec, int num);
 void display(const std::vector<std::shared_ptr<Test>>& vec);
+// DO NOT use new and delete
+// in another word, use only make_unique or make_shared
+
 
 int main (void) 
 {
