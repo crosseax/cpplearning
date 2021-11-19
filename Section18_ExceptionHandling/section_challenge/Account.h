@@ -2,6 +2,7 @@
 #define _ACCOUNT_H_
 #include "I_Printable.h"
 #include "IllegalBalanceException.h"
+#include "InsufficientFundsException.h"
 #include <iostream>
 #include <string>
 

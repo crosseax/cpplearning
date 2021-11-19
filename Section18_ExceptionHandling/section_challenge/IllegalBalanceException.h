@@ -3,8 +3,8 @@
 
 class IllegalBalanceException: public std::exception {
 public:
-    IllegalBalanceException() = default;
-    ~IllegalBalanceException() = default;
+    IllegalBalanceException() {};
+    ~IllegalBalanceException() {};
     virtual const char* what() const noexcept { 
         return "Illegel balance exception";
     }
