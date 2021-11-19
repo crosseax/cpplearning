@@ -9,6 +9,9 @@ void Account::print(std::ostream& os) const {
 
 Account::Account(std::string name, double balance)
     : name {name}, balance {balance} {
+        if (balance < 0) {
+            throw IllegalBalanceException();
+        }
 }
 
 

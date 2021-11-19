@@ -1,6 +1,7 @@
 #ifndef _ACCOUNT_H_
 #define _ACCOUNT_H_
 #include "I_Printable.h"
+#include "IllegalBalanceException.h"
 #include <iostream>
 #include <string>
 
