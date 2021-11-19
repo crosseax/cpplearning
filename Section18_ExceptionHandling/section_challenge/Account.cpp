@@ -30,7 +30,6 @@ bool Account::withdraw (double amount) {
         return true;
     } else {
         throw InsufficientFundsException{};
-        return false;
     }
 }
 

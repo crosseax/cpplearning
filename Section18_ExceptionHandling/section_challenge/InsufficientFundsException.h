@@ -3,8 +3,8 @@
 
 class InsufficientFundsException: public std::exception {
 public:
-    InsufficientFundsException() {};
-    ~InsufficientFundsException() {};
+    InsufficientFundsException() noexcept = default;
+    ~InsufficientFundsException() = default;
     virtual const char* what() const noexcept { 
         return "Insufficient Funds Exception";
     }
