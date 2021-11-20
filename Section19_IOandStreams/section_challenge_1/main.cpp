@@ -89,7 +89,7 @@ int main (void)
             std::cout << std::left  << std::setw(fw1) << ((i == 0) ? country.name : "");
             std::cout << std::left  << std::setw(fw2) << country.cities.at(i).name
                       << std::right << std::setw(fw3) << country.cities.at(i).population
-                                    << std::setw(fw4) << country.cities.at(i).cost 
+                      << std::right << std::setw(fw4) << country.cities.at(i).cost 
                                     << std::endl;
         }
     }
