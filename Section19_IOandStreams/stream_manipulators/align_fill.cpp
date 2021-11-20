@@ -42,26 +42,37 @@ int main (void)
 
     std::cout << num << hello << std::endl;
 
-
+    std::cout << "1234567890123456789012345678901234567890" << std::endl;
     std::cout << std::setw(10) << num
               << std::setw(10) << hello
               << std::setw(10) << hello << std::endl;
-    
     // output:
     // 123456789012345678901234567890 (for reference)
     //    1234.57     Hello     Hello
     
     // oh I guess now it makes sense
     
-
-
+    std::cout << "12345678901234567890123456789012345678901234567890" << std::endl;
     std::cout << std::setw(10) << num
               << std::setw(10) << std::right << hello // std::right is the default
+              << std::setw(15) << std::left << hello 
               << std::setw(15) << std::right << hello << std::endl;
+    // output:
+    // 12345678901234567890123456789012345678901234567890 (for reference)
+    //    1234.57     HelloHello                    Hello
+    
 
+    // std::setfill() 
+    // will only works if field width associated with it
+    std::cout << "1234567890123456789012345678901234567890" << std::endl;
+    std::cout << std::setfill('*');
+    std::cout << std::setw(10) << num
+              << std::setfill('-') << std::setw(15) << hello 
+              << std::setw(10) << hello 
+              << std::endl;
     // output:
     // 1234567890123456789012345678901234567890 (for reference)
-    //    1234.57     Hello          Hello
+    // ****1234.57---------Hello-----Hello
     
 
     return 0;
