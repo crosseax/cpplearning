@@ -55,6 +55,15 @@ int main (void)
     
 
 
+    std::cout << std::setw(10) << num
+              << std::setw(10) << std::right << hello // std::right is the default
+              << std::setw(15) << std::right << hello << std::endl;
+
+    // output:
+    // 1234567890123456789012345678901234567890 (for reference)
+    //    1234.57     Hello          Hello
+    
+
     return 0;
 }
 
