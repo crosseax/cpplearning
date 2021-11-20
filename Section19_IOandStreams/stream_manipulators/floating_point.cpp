@@ -64,9 +64,10 @@ int main (void)
     
     std::cout << num1 << " " << num2 << " " << num3 << std::endl;
 
-    // Seriously bro, just go look cppreference
-    // this shit varies with C++ standards too (c++98 c++11 c++17 etc)
-    // why do cpp has to be like this
+    
+    // - Seriously bro, just go look cppreference
+    // - this shit varies with C++ standards too (c++98 c++11 c++17 etc)
+    // - why do cpp has to be like this
 
     return 0;
 }
