@@ -6,6 +6,8 @@
     // nouppercase - when displaying a prefix and hex values it will be lower case
     // noshowpos - no '+' is displayed for positive numbers
 
+// These manipulators affect all further output to the stream
+
 
 #include <iostream>
 #include <iomanip>
