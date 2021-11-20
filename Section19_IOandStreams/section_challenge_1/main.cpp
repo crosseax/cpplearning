@@ -63,27 +63,35 @@ int main (void)
     // ruler of 70
     std::cout << "1234567890123456789012345678901234567890123456789012345678901234567890" << std::endl;
     std::cout << std::endl;
+
+    const int totalWidth {70};
+    const int fw1 {20}; // field width
+    const int fw2 {20}; 
+    const int fw3 {15}; 
+    const int fw4 {15}; 
+
     // Unformatted
-    std::cout << std::setw(50) << tours.title << std::endl;
+    int titleLength = tours.title.length();
+    std::cout << std::setw((totalWidth - titleLength)/2) << "" << tours.title << std::endl;
     std::cout << std::endl;
     
-    std::cout << std::left  << std::setw(20) << "Country"
-                            << std::setw(20) << "City"
-              << std::right << std::setw(15) << "Population"
-                            << std::setw(15) << "Price" << std::endl;
+    std::cout << std::left  << std::setw(fw1) << "Country"
+                            << std::setw(fw2) << "City"
+              << std::right << std::setw(fw3) << "Population"
+                            << std::setw(fw4) << "Price" << std::endl;
     
     std::cout << "----------------------------------------------------------------------" << std::endl;
-    
+
+    std::cout << std::fixed << std::setprecision(2) << std::showpoint; // setup for price format
+
     for (auto country : tours.countries) {
-        std::cout << std::left << std::setw(20) << country.name;
-        for (auto city : country.cities) {
-            std::cout << std::left  << std::setw(20) << city.name
-                      << std::right << std::setw(15) << city.population
-                                    << std::fixed << std::setprecision(2) << std::showpoint 
-                                    << std::setw(15) << city.cost
-                      << std::endl  << std::setw(20) << ' ';
+        for (size_t i = 0; i < country.cities.size(); i++) {
+            std::cout << std::left  << std::setw(fw1) << ((i == 0) ? country.name : "");
+            std::cout << std::left  << std::setw(fw2) << country.cities.at(i).name
+                      << std::right << std::setw(fw3) << country.cities.at(i).population
+                                    << std::setw(fw4) << country.cities.at(i).cost 
+                                    << std::endl;
         }
-        std::cout << std::endl;
     }
 
     std::cout << std::endl; 
