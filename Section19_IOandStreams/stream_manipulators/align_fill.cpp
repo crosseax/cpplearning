@@ -36,7 +36,7 @@ int main (void)
     // 123456789012345 (for reference)
     // 1234.57Hello
     //    1234.57Hello
-    // the '7' is at the 10th field width. 
+    // the '7' is at the 10th field width. "like seriously wtf cpp why"
 
     std::cout << num << hello << std::endl;
 
