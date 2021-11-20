@@ -60,16 +60,30 @@ int main (void)
             }
         };
 
+    // ruler of 70
+    std::cout << "1234567890123456789012345678901234567890123456789012345678901234567890" << std::endl;
+    std::cout << std::endl;
     // Unformatted
-    std::cout << tours.title << std::endl;
+    std::cout << std::setw(50) << tours.title << std::endl;
+    std::cout << std::endl;
+    
+    std::cout << std::left  << std::setw(20) << "Country"
+                            << std::setw(20) << "City"
+              << std::right << std::setw(15) << "Population"
+                            << std::setw(15) << "Price" << std::endl;
+    
+    std::cout << "----------------------------------------------------------------------" << std::endl;
+    
     for (auto country : tours.countries) {
-        std::cout << country.name << std::endl;
+        std::cout << std::left << std::setw(20) << country.name;
         for (auto city : country.cities) {
-            std::cout << "\t" << city.name
-                      << "\t" << city.population
-                      << "\t" << city.cost
-                      << std::endl;
+            std::cout << std::left  << std::setw(20) << city.name
+                      << std::right << std::setw(15) << city.population
+                                    << std::fixed << std::setprecision(2) << std::showpoint 
+                                    << std::setw(15) << city.cost
+                      << std::endl  << std::setw(20) << ' ';
         }
+        std::cout << std::endl;
     }
 
     std::cout << std::endl; 
