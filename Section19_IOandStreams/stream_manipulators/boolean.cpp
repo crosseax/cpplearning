@@ -3,6 +3,8 @@
 // default when diplaying boolean values is 1 or 0
 // sometimes the strings true or false are more appropriate
 
+// These manipulators affect all further output to the stream
+
 #include <iostream>
 #include <iomanip> // must include for manipulators
 
