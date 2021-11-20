@@ -43,6 +43,18 @@ int main (void)
     std::cout << num << hello << std::endl;
 
 
+    std::cout << std::setw(10) << num
+              << std::setw(10) << hello
+              << std::setw(10) << hello << std::endl;
+    
+    // output:
+    // 123456789012345678901234567890 (for reference)
+    //    1234.57     Hello     Hello
+    
+    // oh I guess now it makes sense
+    
+
+
     return 0;
 }
 
