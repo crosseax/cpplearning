@@ -38,6 +38,8 @@ int main (void)
     //    1234.57Hello
     // the '7' is at the 10th field width. "like seriously wtf cpp why"
 
+    // and that shit only affect the next item once "like seriously WTF"
+
     std::cout << num << hello << std::endl;
 
 
