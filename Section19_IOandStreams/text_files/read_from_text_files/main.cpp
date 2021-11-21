@@ -3,7 +3,7 @@
 
 int main (void)
 {
-    std::string line;
+    std::string hello;
     int num;
     double total;
 
@@ -17,9 +17,9 @@ int main (void)
     }
     std::cout << "===The file.txt is good to go===" << std::endl;
 
-    in_file >> line >> num >> total;
+    in_file >> hello >> num >> total;
     // extraction operator >> would stop at while space " ", so space or \n would work
-    std::cout << line << std::endl;
+    std::cout << hello << std::endl;
     std::cout << num << std::endl;
     std::cout << total << std::endl;
     in_file.close(); // VERY IMPORTANT
@@ -53,13 +53,43 @@ int main (void)
     in_file.seekg(0);   // seek go, so going back to the beginning of the file
 
     std::cout << std::endl;
-    
+
     // you can also do as below
     while (in_file >> name >> num >> total) {
         std::cout << std::setw(10) << std::left << name
                   << std::setw(10) << num
                   << std::setw(10) << total
                   << std::endl;
+    }
+    
+    in_file.close();
+
+    std::cout << std::endl;
+
+
+    in_file.open("poem.txt");
+    if (!in_file) {
+        std::cerr << "Problem opening file" << std::endl;
+        return 1;
+    }
+    std::cout << "===The file.txt is good to go===" << std::endl;
+
+    std::string line;
+
+    while (std::getline(in_file, line)) {
+        std::cout << line << std::endl;
+    }
+
+    in_file.clear();
+    in_file.seekg(0);
+
+    std::cout << std::endl;
+    // unformatted input version
+
+    char c;
+
+    while (in_file.get(c)) {
+        std::cout << c;
     }
 
     in_file.close();
