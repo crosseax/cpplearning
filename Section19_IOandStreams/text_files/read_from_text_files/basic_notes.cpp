@@ -15,11 +15,11 @@ int main (void)
 {
     // std::fstream 
     // the second parameter specifies the mode and any other properties
-    std::fstream thefile {"../file.txt",    // this syntax depends varies along with operating system and IDE
+    std::fstream thefile {"file.txt",    // this syntax depends varies along with operating system and IDE
                             std::ios::in};  // open in input mode - able to read but not write to
                                             // by default its open in text mode
 
-    std::fstream thefile {"../file", 
+    std::fstream thefile {"file", 
                             std::ios::in | std::ios::binary};
                             // | bitwise operator
                             // sets both the input and the binary modes to true
@@ -28,7 +28,7 @@ int main (void)
     // if only have a file that you'll use only for input 
     // its more common to use the ifstream
 
-    std::ifstream thefile {"../file.txt",
+    std::ifstream thefile {"file.txt",
                             std::ios::in}; 
 
 
@@ -36,7 +36,7 @@ int main (void)
     std::ifstream in_file;
     std::string filename;
     // std::cin >> filename; // if want to grab file name from the user during the run time
-    filename = "../file.txt"; // assume exist
+    filename = "file.txt"; // assume exist
 
     in_file.open(filename);
     // or
@@ -93,7 +93,7 @@ int main (void)
 
     // lets see how to read all the lines in a txt file
     
-    std::ifstream in_file{"../myfile.txt"}; // open file
+    std::ifstream in_file{"myfile.txt"}; // open file
     std::string line{};
 
     if (!in_file) { // check if the file is open
