@@ -5,6 +5,7 @@
 !*.cpp
 !*.h
 !*.md
+!*.txt
 !.gitignore
 !README.md
 
