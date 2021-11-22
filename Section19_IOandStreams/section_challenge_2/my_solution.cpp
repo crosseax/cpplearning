@@ -87,5 +87,7 @@ int main (void)
     
     show_line();
     display_average(total, students);
+
+    ifile.close();
     return 0;
 }

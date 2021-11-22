@@ -58,10 +58,7 @@ int main (void)
     std::cout << "Total words read: " << wordCount << std::endl;
     std::cout << "Total (" << target << ") found: " << matchCount << std::endl; 
 
-
+    ifile.close();
     
-
-
-
     return 0;
 }
