@@ -6,14 +6,24 @@ void line_number(std::ifstream& ifile, std::ofstream& ofile) {
     std::string line;
     int num {1};
     while (std::getline(ifile, line)) {
-            ofile << std::setw(10) << std::left << num
-                << line << std::endl;
-            num++; 
+        ofile << std::setw(10) << std::left << num
+            << line << std::endl;
+        num++; 
     }
 }
 
 void line_number_no_space(std::ifstream& ifile, std::ofstream& ofile) {
-
+    std::string line;
+    int num {1};
+    while (std::getline(ifile, line)) {
+        if (line == "") {
+            ofile << "\n";
+        } else {
+            ofile << std::setw(10) << std::left << num
+                << line << std::endl;
+            num++; 
+        }
+    }
 }
 
 int main (void) 
@@ -34,7 +44,8 @@ int main (void)
         return 1;
     }
 
-    line_number(ifile, ofile);
+    // line_number(ifile, ofile);
+    line_number_no_space(ifile, ofile);
 
     std::cout << "Line number added, copy created" << std::endl;
 
