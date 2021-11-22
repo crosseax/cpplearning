@@ -22,7 +22,7 @@
 // }
 
 bool word_check(const std::string& wordToRead, const std::string& wordToFind) {
-    std::size_t found = wordToRead.find(wordToFind);
+    std::size_t found = wordToRead.find(wordToFind); // string.find() returns a index
     if (found == std::string::npos) {
         return false;
     } else {
