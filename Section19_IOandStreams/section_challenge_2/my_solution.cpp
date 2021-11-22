@@ -19,6 +19,42 @@ average 4
 #include <fstream>
 #include <iomanip>
 
+int calculate_scores (const std::string& response, const std::string answers) {
+    int score {0};
+    for (int i = 0; i < answers.length(); i++) {
+        if (response.at(i) == answers.at(i)) {
+            score++;
+        }
+    }
+    return score;
+}
+
+void display_scores (const std::string name, int score) {
+    std::cout << std::setw(10) << std::left  << name 
+              << std::setw(5)  << std::right << score 
+              << std::endl;
+}
+
+void show_title() {
+    std::cout << std::setw(10) << std::left  << "Student" 
+              << std::setw(5)  << std::right << "Score"
+              << std::endl;    
+}
+
+void show_line() {
+    // those two lines below == std::cout << "===============" << std::endl;
+    std::cout << std::setw(15) << std::setfill('=') << "" << std::endl;
+    std::cout << std::setfill(' ');
+}
+
+void display_average(int total, int students) {
+    std::cout << std::setw(10) << std::left  
+              << "Average" 
+              << std::setw(5)  << std::right << std::setprecision(1) << std::fixed 
+              << (static_cast<double>(total) / students)
+              << std::endl;
+}
+
 int main (void)
 {
     std::ifstream ifile;
@@ -34,35 +70,22 @@ int main (void)
 
     std::string name;
     std::string response;
-    double score {0};
-    double total {0};
+    int score {0};
+    int total {0};
     int students {0};
 
-    std::cout << std::setw(10) << std::left  << "Student" 
-              << std::setw(5)  << std::right << "Score"
-              << std::endl;
-
-    std::cout << "===============" << std::endl;
+    show_title();
+    show_line();
 
     for (int i = 0; i < answers.length(); i++) {
         ifile >> name >> response;
         students++;
-        score = 0;
-        for (int j = 0; j < answers.length(); j++) {
-            if (response.at(j) == answers.at(j)) {
-                score++;
-                total++;
-            }
-        }
-        std::cout << std::setw(10) << std::left  << name 
-                  << std::setw(5)  << std::right << score 
-                  << std::endl;
+        score = calculate_scores(response, answers);
+        total += score;
+        display_scores(name, score);
     }
     
-    std::cout << "===============" << std::endl;
-    std::cout << std::setw(10) << std::left  << "Average" 
-              << std::setw(5)  << std::right << std::setprecision(1) << std::fixed << (total / students)
-              << std::endl;
-
+    show_line();
+    display_average(total, students);
     return 0;
 }
