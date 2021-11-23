@@ -60,7 +60,8 @@ int main (void)
         
         // so basically, if the user input the 12.43
         // the int will read 12, and left over .43
-        // which could be read by the next stream input (and lead to potential damage)
+        // which could be read by the next stream input (in this case just the next while loop) 
+        // and lead to wrong input and potential damage
         // so the code above just drops the .43
 
         std::cout << "\n";
