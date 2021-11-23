@@ -19,7 +19,7 @@ private:
         for (const auto& val : arr.values) {
             os << val << " ";
         }
-        os << "]";
+        os << "]" << std::endl;
         return os;
     }
 
@@ -80,6 +80,21 @@ int main (void)
     std::cout << "The size of strings is: " << strings.get_size() << std::endl;
     std::cout << strings << std::endl;
 
+    strings[0] = std::string{"Larry"};
+    std::cout << strings << std::endl;
+
+    strings.fill("X");
+    std::cout << strings << std::endl;
+
+    std::cout << "==========" << std::endl;
+
+    Array<Array<int, 10>, 10> matrix;
+    // std::cout << matrix << std::endl;
+
+    matrix.fill(Array<int, 10> {10});
+    std::cout << matrix << std::endl;
+
+    std::cout << "==========" << std::endl;
 
     return 0;
 }
