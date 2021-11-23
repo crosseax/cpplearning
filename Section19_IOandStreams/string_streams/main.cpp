@@ -64,6 +64,9 @@ int main (void)
         // so the code above just drops the .43
 
         std::cout << "\n";
+        // I dont understand why the '\n' above has to be in the single quote,
+        // but here it works again as in "\n" a double quote
+        // I guess it's just C++
 
     } while (!done);
 
