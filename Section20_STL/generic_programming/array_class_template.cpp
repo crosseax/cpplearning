@@ -1,5 +1,9 @@
-// it is possible to have non-type template parameters
-//
+// Note: Since C++11 the STL has std::array which is a template-based array class
+// Use std::array instead of raw arrays when possible,
+// unless you know exactly what you are doing
+
+// Note that we can have non-type template parameters
+// That's N in this case
 
 #include <iostream>
 #include <string>
@@ -47,7 +51,7 @@ int main (void)
 {
     std::cout << "==========" << std::endl;
 
-    Array<5> nums;
+    Array<5> nums; // happens on the stack
     std::cout << "The size of nums is: " << nums.get_size() << std::endl;
     std::cout << nums << std::endl; // yet garbage value but the array is created
 
@@ -65,6 +69,9 @@ int main (void)
     std::cout << nums << std::endl;
 
     std::cout << "==========" << std::endl;
+
+    Array<100> nums2 {1}; // fixed allocation, happens on the stack
+    std::cout << nums2 << std::endl;
 
     return 0;
 }
