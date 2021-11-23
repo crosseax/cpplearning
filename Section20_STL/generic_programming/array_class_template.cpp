@@ -96,5 +96,13 @@ int main (void)
 
     std::cout << "==========" << std::endl;
 
+    Array<int, 10> arr {0};
+    for (int i = 0; i < 10; i++) {
+        arr[i] = i;
+        matrix[i] = arr;
+    }
+    std::cout << matrix << std::endl;
+
+
     return 0;
 }
