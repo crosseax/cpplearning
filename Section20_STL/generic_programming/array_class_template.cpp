@@ -8,13 +8,13 @@
 #include <iostream>
 #include <string>
 
-template <int N> // the user provide N at the compile time so the compiler can create that array
+template <typename T, int N> // the user provide N at the compile time so the compiler can create that array
 class Array {
 private:
     int size {N}; // how to get the N??? 
-    int values [N]; // the N needs to be known at compile-time
+    T values [N]; // the N needs to be known at compile-time
 
-    friend std::ostream& operator<< (std::ostream& os, const Array<N>& arr) {
+    friend std::ostream& operator<< (std::ostream& os, const Array<T, N>& arr) {
         os << "[ ";
         for (const auto& val : arr.values) {
             os << val << " ";
@@ -25,13 +25,13 @@ private:
 
 public:
     Array() = default;
-    Array(int init_val) {
+    Array(T init_val) {
         for (auto& item : values) {
             item = init_val;
         }
     }
 
-    void fill(int val) {
+    void fill(T val) {
         for (auto& item : values) {
             item = val;
         }
@@ -42,7 +42,7 @@ public:
     }
 
     // overloaded subscript operator for easy use
-    int& operator[] (int index) {
+    T& operator[] (int index) {
         return values[index];
     }
 };
@@ -51,7 +51,7 @@ int main (void)
 {
     std::cout << "==========" << std::endl;
 
-    Array<5> nums; // happens on the stack
+    Array<int, 5> nums; // happens on the stack
     std::cout << "The size of nums is: " << nums.get_size() << std::endl;
     std::cout << nums << std::endl; // yet garbage value but the array is created
 
@@ -70,8 +70,16 @@ int main (void)
 
     std::cout << "==========" << std::endl;
 
-    Array<100> nums2 {1}; // fixed allocation, happens on the stack
+    Array<int, 100> nums2 {1}; // fixed allocation, happens on the stack
+    std::cout << "The size of nums2 is: " << nums2.get_size() << std::endl;
     std::cout << nums2 << std::endl;
+
+    std::cout << "==========" << std::endl;
+
+    Array<std::string, 10> strings {std::string ("hello")};
+    std::cout << "The size of strings is: " << strings.get_size() << std::endl;
+    std::cout << strings << std::endl;
+
 
     return 0;
 }
