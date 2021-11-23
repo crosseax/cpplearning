@@ -68,6 +68,9 @@ int main (void)
         // but here it works again as in "\n" a double quote
         // I guess it's just C++
 
+        // got it, '\n' is just a character; "\n" is a string literal
+        // so "\n" is like '\n' + '\0' (or null terminator)
+
     } while (!done);
 
     std::cout << "You entered an integer: " << value << std::endl;
