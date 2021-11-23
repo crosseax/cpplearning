@@ -45,9 +45,26 @@ public:
 
 int main (void) 
 {
+    std::cout << "==========" << std::endl;
+
     Array<5> nums;
     std::cout << "The size of nums is: " << nums.get_size() << std::endl;
     std::cout << nums << std::endl; // yet garbage value but the array is created
+
+    std::cout << "==========" << std::endl;
+
+    nums.fill(0);
+    std::cout << "The size of nums is: " << nums.get_size() << std::endl;
+    std::cout << nums << std::endl;
+
+    nums.fill(10);
+    std::cout << nums << std::endl;
+
+    nums[0] = 1000; // this is where the overloaded subscript operator comes in
+    nums[3] = 2000; // nums.operator[](3), setting value
+    std::cout << nums << std::endl;
+
+    std::cout << "==========" << std::endl;
 
     return 0;
 }
