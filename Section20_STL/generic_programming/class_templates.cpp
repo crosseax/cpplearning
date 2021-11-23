@@ -42,6 +42,12 @@ struct My_Pair {
     T2 second;
 };
 
+template <typename T1, typename T2>
+std::ostream& operator<< (std::ostream& os, const My_Pair<T1, T2>& rhs) {
+    os << rhs.first << " " << rhs.second;
+    return os;
+}
+
 
 int main (void)
 {
@@ -58,8 +64,28 @@ int main (void)
     
     std::cout << item3 << std::endl;
 
-    std::cout << "===========" << std::endl;
+    std::cout << "\n===========" << std::endl;
 
+    std::vector<Item<double>> vec{};
+    vec.push_back(Item<double> {"Larry", 100.0});
+    vec.push_back(Item<double> {"Moe", 200.0});
+    vec.push_back(Item<double> {"Curly", 300.0});
+
+    for (const auto& v : vec) {
+        // std::cout << v.get_name() << " " << v.get_value() << std::endl;
+        std::cout << v << std::endl;
+    }
+
+    std::cout << "\n===========" << std::endl;
+
+    My_Pair<std::string, int> p1 {"Frank", 500};
+    My_Pair<int, double> p2 {123, 567.89};
+    
+    // std::cout << p1.first << " " << p1.second << std::endl;
+    // std::cout << p2.first << " " << p2.second << std::endl;
+
+    std::cout << p1 << std::endl;
+    std::cout << p2 << std::endl;
 
     return 0;
 }
