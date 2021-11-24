@@ -139,21 +139,42 @@ void test4() {
         {"James", "Haskell"}
     };
 
-    auto it = favorites.begin();
-    // std::map<std::string, std::string>::iterator it = favorites.begin();
+    // map is key-value pairs
+    std::map<std::string, std::string>::iterator it = favorites.begin();
+    // auto it = favorites.begin();
     while (it != favorites.end()) {
         std::cout << it->first << ": " << it->second << std::endl;
         it++;
     }
-
-    
-
+    // IMPORTANT: notice the output order is not necessarily the initializing order above
 }
 
 
 void test5() {
     std::cout << "\n===test5===" << std::endl;
 
+    // iterate over a subset of a container
+    std::vector<int> vec {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::vector<int>::iterator start = vec.begin();
+    // auto start = vec.begin();
+    std::vector<int>::iterator finish = vec.end();
+    // auto finish = vec.end();
+
+    while (start != finish) {
+        std::cout << *start << std::endl;
+        start++;
+    }
+    
+    std::cout << std::endl;
+
+    start = vec.begin();
+    finish = vec.end() - 1; // important if you want to show *finish
+
+    while (start < finish) {
+        std::cout << *start << " " << *finish << std::endl;
+        start++;
+        finish--;
+    }
 }
 
 
@@ -163,7 +184,7 @@ int main (void)
     test2();
     test3();
     test4();
-
+    test5();
 
     return 0;
 }
