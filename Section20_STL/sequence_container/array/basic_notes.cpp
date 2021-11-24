@@ -26,8 +26,8 @@
     // arr.size();      // 5
     // arr.at(0);       // 1, bounds check
     // arr[1];          // 2, no bounds check
-    // arr.front();     // 1
-    // arr.back();      // 5
+    // arr.front();     // 1, arr.front == *arr.begin()
+    // arr.back();      // 5, arr.back == *arr.end()
     // arr.empty;       // 0, (false) - returns true if is empty
     // arr.max_size();  // 5
     // arr.fill();      // fill array with provided elements
