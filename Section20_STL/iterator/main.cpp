@@ -112,7 +112,9 @@ void test4() {
 
     // const reverse iterator over a list
     std::list<std::string> namelist {"Larry", "Moe", "Curly"};
-    
+    // a list is basically a doubly linked list
+    // so vector is contiguous memory
+    // but the list is not necessarily
     std::list<std::string>::const_reverse_iterator crit = namelist.crbegin(); // points to Curly
     // auto crit = namelist.crbegin(); // use crbegin()
     while (crit != namelist.crend()) {
@@ -125,6 +127,7 @@ void test4() {
     crit--; // points to Larry
     std::cout << *crit << std::endl;
     // crit -= 2; // CANNOT, because this is a list
+    // to use += or -= etc with list, you need to overload them
     std::cout << *crit << std::endl;
 
     std::cout << std::endl;
