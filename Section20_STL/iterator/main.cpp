@@ -155,9 +155,9 @@ void test5() {
 
     // iterate over a subset of a container
     std::vector<int> vec {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    std::vector<int>::iterator start = vec.begin();
+    std::vector<int>::iterator start = vec.begin() + 2; // points to 3
     // auto start = vec.begin();
-    std::vector<int>::iterator finish = vec.end();
+    std::vector<int>::iterator finish = vec.end() - 3; // points to 8
     // auto finish = vec.end();
 
     while (start != finish) {
