@@ -6,9 +6,9 @@
     // handled automatically
     // can expand and contract as needed
     // elements are stored in contiguous memory as an array
-// Direct element access (constant time), O(1)
-// Rapid insertion and deletion at the back (constant time), O(1)
-// Insertion or removal of elements (linear time), O(n)
+// Direct element access (constant time)
+// Rapid insertion and deletion at the back (constant time)
+// Insertion or removal of elements (linear time)
 // All iterators available and may invalidate
 
 

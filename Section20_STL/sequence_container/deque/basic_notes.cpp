@@ -8,8 +8,8 @@
     // can expand and contract as needed
     // elements are NOT stored in contiguous memory
 
-// Direct element access (constant time), O(1)
-// Rapid insertion and deletion at the front and back (constant time), O(1)
+// Direct element access (constant time)
+// Rapid insertion and deletion at the front and back (constant time)
 // Insertion or removal of elements (linear time)
 // All iterators available and may invalidate
 
