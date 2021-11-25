@@ -38,6 +38,7 @@
     // vec[1];          // 2, no bounds checking
     // vec.capacity();  // 5
     // vec.max_size();  // a very large number
+    // vec.clear();     // remove all the elements
 
     // vec.front();     // 1, vec.front == *vec.begin()
     // vec.back();      // 5, vec.back == *(vec.end() - 1)
