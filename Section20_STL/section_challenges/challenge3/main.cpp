@@ -1,89 +1,99 @@
 // Section 20
-// Challenge 2
-//  Lists
+// Challenge 3  
+// Maps and Sets
 
 #include <iostream>
-#include <list>
+#include <fstream>
+#include <sstream>
+#include <map>
+#include <set>
 #include <string>
-#include <cctype>
 #include <iomanip>
-#include <limits>
 
-class Song {
-    friend std::ostream &operator<<(std::ostream &os, const Song &s);
-    std::string name;
-    std::string artist;
-    int rating;
-public:
-    Song() = default;
-    Song(std::string name, std::string artist, int rating)
-            : name{name}, artist{artist}, rating{rating} {}
-    std::string get_name() const {
-        return name;
-    }
-    std::string get_artist() const {
-        return artist;
-    }
-    int get_rating() const {
-        return rating;
-    }
-    
-    bool operator<(const Song &rhs) const  {
-        return this->name < rhs.name;
-    }
-    
-    bool operator==(const Song &rhs) const  {
-        return this->name == rhs.name;
-    }
-};
+// Used for Part1
+// Display the word and count from the 
+// std::map<std::string, int>
 
-std::ostream &operator<<(std::ostream &os, const Song &s) {
-    os << std::setw(20) << std::left << s.name
-       << std::setw(30) << std::left << s.artist
-       << std::setw(2) << std::left << s.rating;
-       return os;
+void display_words(const std::map<std::string, int> &words) {
+    std::cout << std::setw(12) << std::left << "\nWord"
+                << std::setw(7) << std::right << "Count"<< std::endl;
+    std::cout << "===================" << std::endl;
+    for (auto pair: words)
+        std::cout << std::setw(12) << std::left << pair.first 
+                       << std::setw(7) << std::right << pair.second << std::endl;
 }
 
-void display_menu() {
-    std::cout << "\nF - Play First Song" << std::endl;
-    std::cout << "N - Play Next song" << std::endl;
-    std::cout << "P - Play Previous song" << std::endl;
-    std::cout << "A - Add and play a new Song at current location" << std::endl;
-    std::cout << "L - List the current playlist" << std::endl;
-    std::cout << "===============================================" << std::endl;
-    std::cout << "Enter a selection (Q to quit): ";
+// Used for Part2
+// Display the word and occurences from the 
+// std::map<std::string, std::set<int>>
+
+void display_words(const std::map<std::string, std::set<int>> &words)
+{
+     std::cout << std::setw(12) << std::left << "\nWord"
+                << "Occurrences"<< std::endl;
+    std::cout << "=====================================================================" << std::endl;
+    for (auto pair: words) {
+        std::cout << std::setw(12) << std::left << pair.first 
+                       << std::left << "[ ";
+        for (auto i: pair.second) 
+            std::cout << i << " ";
+        std::cout << "]" << std::endl;
+    }
 }
 
-void play_current_song(const Song &song) {
-    // This function should display 
-    // Playing: followed by the song that is playing
-   
-    std::cout << "You implement this function"<< std::endl;
+// This function removes periods, commas, semicolons and colon in 
+// a string and returns the clean version
+std::string clean_string(const std::string &s) {
+    std::string result;
+    for (char c: s) {
+        if (c == '.' || c == ',' || c == ';' || c == ':')
+            continue;
+        else
+            result += c;
+    }
+    return result;
 }
 
-void display_playlist(const std::list<Song> &playlist, const Song &current_song) {
-    // This function should display the current playlist 
-    // and then the current song playing.
+// Part1 process the file and builds a map of words and the 
+// number of times they occur in the file
+
+void part1() {
+    std::map<std::string, int> words;
+    std::string line;       
+    std::string word;   
+    std::ifstream in_file {"../words.txt"};
+    if (in_file) {
+        
+        // You implement this code
+        
+        in_file.close();
+        display_words(words);
+    } else {
+        std::cerr << "Error opening input file" << std::endl;
+    }
+}
     
-    std::cout << "You implement this function" << std::endl;
+// Part2 process the file and builds a map of words and a 
+// set of line numbers in which the word appears
+void part2() {
+    std::map<std::string, std::set<int>> words;
+    std::string line;
+    std::string word;
+    std::ifstream in_file {"../words.txt"};
+    if (in_file) {
+     
+        // You implement this code
+        
+        in_file.close();
+        display_words(words);
+    } else {
+        std::cerr << "Error opening input file" << std::endl;
+    }
 }
 
 int main() {
-
-    std::list<Song> playlist{
-            {"God's Plan",        "Drake",                     5},
-            {"Never Be The Same", "Camila Cabello",            5},
-            {"Pray For Me",       "The Weekend and K. Lamar",  4},
-            {"The Middle",        "Zedd, Maren Morris & Grey", 5},
-            {"Wait",              "Maroone 5",                 4},
-            {"Whatever It Takes", "Imagine Dragons",           3}          
-    };
-    
-    std::list<Song>::iterator current_song = playlist.begin();
-    
-    std::cout << "To be implemented" << std::endl;
-    // Your program logic goes here
-
-    std::cout << "Thanks for listening!" << std::endl;
+    part1();
+    part2();
     return 0;
 }
+
