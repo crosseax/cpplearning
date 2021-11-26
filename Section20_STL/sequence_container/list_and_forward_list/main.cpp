@@ -33,9 +33,9 @@ std::ostream& operator<< (std::ostream& os, const Person& p) {
 
 // template function to display any list
 template<typename T>
-void display(const std::list<T>& vec) {
+void display(const std::list<T>& list) {
     std::cout << "[ ";
-    for (const auto& elem : vec) {
+    for (const auto& elem : list) {
         std::cout << elem << " ";
     }
     std::cout << "]" << std::endl;
