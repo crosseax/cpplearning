@@ -95,9 +95,6 @@ void part2() {
         // You implement this code
         std::cout << "Text file ready" << std::endl;
 
-        std::map<std::string, std::set<int>>::iterator it = words.begin();
-
-        std::set<int> occurence;
         int lineNum {0};
 
         while (!in_file.eof()) {
