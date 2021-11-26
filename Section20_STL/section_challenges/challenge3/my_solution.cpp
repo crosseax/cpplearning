@@ -105,9 +105,32 @@ void part2() {
         // You implement this code
         std::cout << "Text file ready" << std::endl;
 
+        std::map<std::string, std::set<int>>::iterator it = words.begin();
 
+        std::set<int> occurence {};
+        int lineNum {1};
 
+        while (!in_file.eof()) {
+            std::getline(in_file, line);
+            std::stringstream thisline {line};
+            while (!thisline.eof()) {
+                thisline >> word;
+                if (!std::isalpha(word.back())) {
+                    word.pop_back();
+                }
 
+                it = words.find(word);
+
+                if (it != words.end()){ // found
+                    it->second.insert(lineNum);
+                } else {
+                    occurence = {lineNum};
+                    words.insert(std::make_pair(word, occurence));
+                }
+                it = words.begin();
+            }
+            lineNum++;
+        }
         
         in_file.close();
         display_words(words);
