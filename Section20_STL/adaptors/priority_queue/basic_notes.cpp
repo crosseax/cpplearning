@@ -3,6 +3,7 @@
 // Allows insertions and removal of elements in order from the front of the container
 // Elements are stored internally as a vector by default
     // a data structure called heap is used behind the scene (NOT THE HEAP OF MEMORY)
+    // the heap might caused the naming of top() method
 // Elements are inserted in priority order
     // largest value will always be at the front
 // No iterators are supported
