@@ -111,7 +111,7 @@ void filter_vector(const std::vector<int>& vec, std::function<bool(int)> func) {
         // that expects int parameter 
         // returns a boolean value
         // named func
-// void filter_vector(const std::vector<int>& vec, auto func)
+// void filter_vector(const std::vector<int>& vec, auto func), C++20 syntax
     std::cout << "[";
     for (int i : vec) {
         if (func(i)) { 
