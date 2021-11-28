@@ -103,6 +103,9 @@ void test3() {
 // or 
 // auto as parameter type in C++20
 void filter_vector(const std::vector<int>& vec, std::function<bool(int)> func) { 
+    // <bool(int)>
+        // this is a predicate lambda
+        // it expects one or more parameters and returns a boolean
     // std::function<bool(int)> func: 
         // a function object 
         // that expects int parameter 
@@ -111,7 +114,10 @@ void filter_vector(const std::vector<int>& vec, std::function<bool(int)> func) {
 // void filter_vector(const std::vector<int>& vec, auto func)
     std::cout << "[";
     for (int i : vec) {
-        if (func(i)) { // if the elem in vec meet the func() requirement
+        if (func(i)) { 
+            // if the elem in vec meet the func() requirement
+            // you don't need to know what func does
+            // all you need too know is that it expects an int and returns a bool
             std::cout << i << " ";
         }
     }
@@ -126,6 +132,11 @@ void test4() {
     filter_vector(nums, [] (int x) { return x > 50; });
     filter_vector(nums, [] (int x) { return x <= 30; });
     filter_vector(nums, [] (int x) { return x >= 30 && x <= 60; });
+}
+
+// used for test 5
+auto make_lambda() {
+
 }
 
 void test5() {
