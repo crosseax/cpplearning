@@ -110,6 +110,14 @@ void test4 () {
     });
     std::cout << std::endl;
 
+    std::transform(vec1.begin(), vec1.end(), vec1.begin(), [] (int x) {
+        return x * 2;
+    });
+
+    std::for_each(vec1.begin(), vec1.end(), [] (int x) {
+        std::cout << x << " ";
+    });
+    std::cout << std::endl;
 }
 
 int main (void) 
