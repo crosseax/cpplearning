@@ -190,6 +190,16 @@ void test7() {
         {"Curly", 25}
     };
 
+    /***
+     * The algorithm used by sort() is IntroSort. 
+     * Introsort being a hybrid sorting algorithm 
+     * uses three sorting algorithm to minimize the running time, 
+     * Quicksort, Heapsort and Insertion Sort. 
+     * Simply putting, it is the best sorting algorithm around. 
+     * It is a hybrid sorting algorithm, 
+     * which means that it uses more than one sorting algorithms as a routine. 
+    ***/
+   
     std::sort(stooges.begin(), stooges.end(), 
         [](const Person& p1, const Person& p2) {
             return p1.get_name() < p2.get_name(); 
