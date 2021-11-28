@@ -102,8 +102,30 @@ void test3() {
 // using std::function as parameter in C++14 and greater
 // or 
 // auto as parameter type in C++20
+void filter_vector(const std::vector<int>& vec, std::function<bool(int)> func) { 
+    // std::function<bool(int)> func: 
+        // a function object 
+        // that expects int parameter 
+        // returns a boolean value
+        // named func
+// void filter_vector(const std::vector<int>& vec, auto func)
+    std::cout << "[";
+    for (int i : vec) {
+        if (func(i)) { // if the elem in vec meet the func() requirement
+            std::cout << i << " ";
+        }
+    }
+    std::cout << "]" << std::endl;
+}
+
 void test4() {
     std::cout << "\n===test 4===" << std::endl;
+
+    std::vector<int> nums {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+
+    filter_vector(nums, [] (int x) { return x > 50; });
+    filter_vector(nums, [] (int x) { return x <= 30; });
+    filter_vector(nums, [] (int x) { return x >= 30 && x <= 60; });
 }
 
 void test5() {
