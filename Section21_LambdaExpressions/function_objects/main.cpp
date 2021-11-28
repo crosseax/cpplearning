@@ -17,6 +17,16 @@ struct Displayer {
     }
 };
 
+class Multiplier {
+private:
+    int num {};
+public:
+    Multiplier (int n) : num {n} {}
+    int operator() (int n) const { // the overload of the operator() is what makes this an object
+        return n * num;
+    }
+};
+
 
 void test1 () {
     std::cout << "\n===test 1===" << std::endl;
@@ -85,7 +95,21 @@ void test3 () {
 void test4 () {
     std::cout << "\n===test 4===" << std::endl;
 
-    
+    Multiplier mult(100);
+
+    std::vector<int> vec1 {1, 2, 3, 4};
+    std::for_each(vec1.begin(), vec1.end(), [] (int x) {
+        std::cout << x << " ";
+    });
+    std::cout << std::endl;
+
+    std::transform(vec1.begin(), vec1.end(), vec1.begin(), mult);
+
+    std::for_each(vec1.begin(), vec1.end(), [] (int x) {
+        std::cout << x << " ";
+    });
+    std::cout << std::endl;
+
 }
 
 int main (void) 
