@@ -12,6 +12,7 @@
 #include <vector>
 #include <functional> // for std::function
 #include <algorithm>
+#include <typeinfo>
 
 class Person {
     friend std::ostream& operator<< (std::ostream& os, const Person& p);
@@ -37,6 +38,15 @@ public:
 std::ostream& operator<< (std::ostream& os, const Person& p) {
     os << "[Person: " << p.name << ": " << p.age << "]";
     return os;
+}
+
+template <typename T>
+void display_vector(std::vector<T> vec) {
+    std::cout << "vec { ";
+    for (T v : vec) {
+        std::cout << v << " ";
+    }
+    std::cout << "}" << std::endl;
 }
 
 // structure and the syntax of the lambda expressions
@@ -135,20 +145,88 @@ void test4() {
 }
 
 // used for test 5
-auto make_lambda() {
-
+auto make_lambda() { 
+    return []() { std::cout << "This lambda was make using the make_lambda function" << std::endl; };
 }
 
 void test5() {
     std::cout << "\n===test 5===" << std::endl;
+
+    auto l1 = make_lambda(); // calling a function, returns a lambda, but not executing it
+
+    l1(); // executing/calling it
 }
 
+// using auto in the lambda parameter list
 void test6() {
     std::cout << "\n===test 6===" << std::endl;
+
+    auto l1 = [](auto x, auto y) {
+        // always overload the operator<< for x and y that's passed in
+        std::cout << "x: (" << x << ") is a ("<< typeid(x).name() << ") type" << std::endl;
+        std::cout << "y: (" << y << ") is a ("<< typeid(y).name() << ") type" << std::endl << std::endl;
+                                            // if wanna see details about typeid()
+                                            // when run, use comand:
+                                            // ./main | c++filt -t
+                                            // this is a gcc compiler stuff, read more
+    }; 
+
+    l1 (10, 20.5);
+    l1 ("Frank", 9.99);
+    
+    std::string s {"Crossea"};
+    long long i {500};
+    l1 (s, i);
+
+    l1 (Person("Larry", 20), 't');
 }
 
 void test7() {
     std::cout << "\n===test 7===" << std::endl;
+
+    std::vector<Person> stooges {
+        {"Larry", 18},
+        {"Moe", 30},
+        {"Curly", 25}
+    };
+
+    std::sort(stooges.begin(), stooges.end(), 
+        [](const Person& p1, const Person& p2) {
+            return p1.get_name() < p2.get_name(); 
+            // if p1 name is less than p2 name, p1 will be placed in the first element
+            // also a predicate lambda, pass in some val, return a bool
+        });
+    
+    std::for_each(stooges.begin(), stooges.end(), [] (const Person& p) {
+        std::cout << p << std::endl;
+    });
+    std::cout << std::endl;
+
+
+    std::sort(stooges.begin(), stooges.end(), 
+        [](const Person& p1, const Person& p2) {
+            return p1.get_age() < p2.get_age(); 
+            // if p1 age is less than p2 age, p1 will be placed in the first element
+            // also a predicate lambda, pass in some val, return a bool
+        });
+
+    std::for_each(stooges.begin(), stooges.end(), [] (const Person& p) {
+        std::cout << p << std::endl;
+    });
+
+    std::cout << std::endl;
+    
+    std::vector<int> nums {1, 2, 3, 4, 5, 6, 7};
+
+    std::sort(nums.begin(), nums.end(), [] (const int& x, const int& y) {
+        return x > y; // if x is greater than y, x will be ordered before y
+    });
+    display_vector(nums);
+
+    std::sort(nums.begin(), nums.end(), [] (const int& x, const int& y) {
+        return x < y; // if x is greater than y, y will be ordered before x
+    });
+    display_vector(nums);
 }
 
 
@@ -163,6 +241,5 @@ int main (void)
     test6();
     test7();
 
-    std::cout << std::endl;
     return 0;
 }
