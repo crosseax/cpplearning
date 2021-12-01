@@ -124,16 +124,104 @@ void display_grocery_list (const std::vector<Grocery_Item>& grocery_list) {
     std::cout << "Total items: " << valid_item_count + invalid_item_count << std::endl;
 }
 
-
+// Using an unscoped enumeration to model grocery items
 void test2() {
     std::cout << "\n===test 2===" << std::endl;
 
+    std::vector<Grocery_Item> shopping_list;
 
+    shopping_list.push_back(Apple);
+    shopping_list.push_back(Apple);
+    shopping_list.push_back(Milk);
+    shopping_list.push_back(Orange);
+
+    // Grocery_Item item = 100; // compiler error
+    int Helicopter {1000};
+
+    shopping_list.push_back(Grocery_Item(Helicopter)); // Invalid item
+    shopping_list.push_back(Grocery_Item(0)); // will add Milk again
+
+    display_grocery_list(shopping_list);
 }
 
+// Used for test3
+// Unscoped enumerations holding the possible states
+// and sequences of rocket launch
+// Note the addition of the Unknown enumerator for the State enumeration
+enum State {Engine_Failure, Inclement_Weather, Nominal, Unknown};
+enum Sequence {Abort, Hold, Launch};
+
+// Used for test 3
+// Overloading the stream extraction operator>> 
+// to allow a user to enter the state of State enumeration
+// Note the use of underlying_type_t
+
+std::istream& operator>> (std::istream& is, State& state) {
+    
+    // int user_input; // Will also work
+    // underlying_type_t is better cuz if in the future
+    // someone assigning the state to not a int
+    // this will still work
+    std::underlying_type_t<State> user_input;
+    is >> user_input;
+
+    switch (user_input) {
+        case Engine_Failure:
+        case Inclement_Weather:
+        case Nominal:
+        case Unknown:
+            state = State(user_input);
+            break;
+        default:
+            std::cout << "User input is not a valid lauch state." << std::endl;
+            state = Unknown;
+    }
+    return is;
+}
+
+// Used for test3
+// Overloading the stream insertion operator<<
+// to insert the string representation of the
+// provided Sequence parameter into the output stream
+std::ostream& operator<< (std::ostream& os, const Sequence& sequence) {
+    switch (sequence) {
+        case Abort: os << "Abort"; break;
+        case Hold: os << "Hold"; break;
+        case Launch: os << "Launch"; break;
+    }
+    return os;
+}
+
+// Used for test3
+// Displays an informaton message given the sequence parameter
+void initiate (Sequence sequence) {
+    std::cout << "Initiate " << sequence << " sequence!" << std::endl; // Uses overloaded operator<<
+}
+
+// Using unscoped enums to control a rocket launch
+// reads input from the user for the State of the rocket launch
+// and then determines which Sequence to execute
 void test3() {
     std::cout << "\n===test 3===" << std::endl;
+
+    State state;
+    std::cout << "Launch state: ";
+    std::cin >> state; // uses the overloaded operator>>
+
+    switch (state) {
+        case Engine_Failure:
+        case Unknown:
+            initiate(Abort);
+            break;
+        case Inclement_Weather:
+            initiate(Hold);
+            break;
+        case Nominal:
+            initiate(Launch);
+            break;
+    }
 }
+
 
 
 int main (void) 
