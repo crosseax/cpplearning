@@ -1,3 +1,7 @@
+// Unscoped enumerations
+// enumeerators are unqualified and they are visible 
+// throughout the scope in which the enumerator was declared
+
 #include <iostream>
 #include <vector>
 #include <string>
