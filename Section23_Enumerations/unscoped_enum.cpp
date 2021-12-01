@@ -119,7 +119,9 @@ void display_grocery_list (const std::vector<Grocery_Item>& grocery_list) {
         }
     }
     std::cout << "===Results===" << std::endl;
-    
+    std::cout << "Valid items count: " << valid_item_count << std::endl;
+    std::cout << "Invalid items count: " << invalid_item_count << std::endl;
+    std::cout << "Total items: " << valid_item_count + invalid_item_count << std::endl;
 }
 
 
